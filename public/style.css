@@ -3,20 +3,23 @@
   margin: 0;
   box-sizing: border-box;
 }
-
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
-
 body {
-  font-family: serif;  /* keep original style */
-  font-size: 14px;     /* professional, smaller font */
+  font-family: serif;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
-
+a {
+  text-decoration: none;
+  color: #fff;
+}
+main {
+  flex: 1;
+}
 header {
   display: flex;
   align-items: center;
@@ -24,121 +27,302 @@ header {
   background-color: #f4f4f4;
   border-top: #ffd801 4px solid;
 }
-
 header nav {
   margin-left: 20px;
 }
-
 .logo {
   width: 50px;
   height: 50px;
 }
-
 .title {
-  font-size: 22px;
+  font-size: 24px;
   color: #333;
   font-weight: normal;
 }
-
-main {
-  flex: 1;
-  padding: 30px;
-  background-color: #eaeaea;
-  display: flex;
-  justify-content: center;
-}
-
-.card {
-  text-align: center;
-  width: 38%;           /* slightly narrower */
-  max-width: 400px;
-  border-radius: 10px;
-  background-color: #fff;
-  padding: 1.5rem;
-}
-
 .title-2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 200;
   text-align: left;
 }
-
 .title-confirm {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 800;
   text-align: center;
-  padding: 2rem 0;
+  padding: 2.5rem 0;
 }
-
 .secure-text {
-  font-size: 1rem;
-  line-height: 1.4;
+  font-size: 1.5rem;
   text-align: left;
 }
-
+.bold {
+  font-weight: 900;
+}
+main {
+  padding: 40px;
+  background-color: #eaeaea;
+}
+.warning {
+  width: 50px;
+  height: 50px;
+}
+.card {
+  text-align: center;
+  width: 40%;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 2rem;
+}
+.banner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  border-radius: 5px;
+  border: #333 solid 1px;
+  border-bottom: 8px solid #ffd801;
+  padding: 1rem;
+}
+form {
+  margin: 3rem 0 0 0;
+}
 input {
   width: 100%;
-  border-radius: 8px;
-  padding: 10px 12px;
-  font-size: 14px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  padding: 1rem 10px;
+  padding: 12px 40px 12px 12px;
+  font-size: 16px;
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 40px;
+  outline: none;
 }
-
-.btn, .btn-2 {
-  font-size: 1rem;
-  padding: 8px 20px;
+.input-email {
+  background-image: url("./assests/images/pen.png");
 }
-
-footer {
-  padding: 25px 0;
+.input-wrapper {
+  position: relative;
   width: 100%;
-  background-color: #787777;
-  color: #fff;
 }
-
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 44px 12px 12px;
+  font-size: 16px;
+}
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+#toggle {
+  position: absolute;
+  right: 12px;
+  margin-top: -10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 50px;
+}
+.toggle-password img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+.btn {
+  cursor: pointer;
+  width: 100%;
+  padding: 10px 30px;
+  background-color: #ffd801;
+  border-radius: 30px;
+  border: none;
+  font-size: 1.2rem;
+  color: #1c3aff;
+}
+.btn-2 {
+  cursor: pointer;
+  width: 30%;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  background-color: transparent;
+  font-size: 1.2rem;
+  color: #1c3aff;
+}
+footer {
+  padding: 30px 0;
+  width: 100%;
+  margin: 0 auto;
+  height: 60px;
+  background-color: #787777;
+  color: #ffffff;
+}
 footer ul {
   padding: 0 20rem;
   list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
 }
-
-/* Media Queries */
+/* ===== Modal Overlay ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+/* ===== Modal Box ===== */
+.modal-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  animation: scaleIn 0.25s ease-in-out;
+}
+.modal-box h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+}
+.modal-box p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+.modal-btn {
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 30px;
+  background: #ffd801;
+  color: #1c3aff;
+  cursor: pointer;
+}
+.modal-btn:hover {
+  opacity: 0.9;
+}
+/* ===== Animation ===== */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* Media queries */
 @media (max-width: 1024px) {
+  main {
+    padding: 30px;
+  }
   .card {
-    width: 55%;
+    width: 60%;
+    padding: 1.5rem;
   }
   .title-confirm {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
+  }
+  footer ul {
+    padding: 0 6rem;
   }
 }
-
 @media (max-width: 768px) {
+  header {
+    align-items: flex-start;
+  }
+  header nav {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  main {
+    padding: 20px;
+  }
   .card {
-    width: 75%;
+    width: 80%;
+  }
+  .title {
+    font-size: 20px;
   }
   .title-2 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
   .secure-text {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .card {
-    width: 90%;
-    padding: 1rem;
-  }
-  .title-2 {
     font-size: 1.1rem;
   }
-  .secure-text {
-    font-size: 0.85rem;
+  .btn-2 {
+    width: 50%;
+  }
+  footer ul {
+    padding: 0 3rem;
+  }
+}
+@media (max-width: 480px) {
+  header {
+    padding: 15px;
+  }
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+  .title {
+    font-size: 18px;
+  }
+  main {
+    padding: 15px;
+  }
+  .card {
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 8px;
+  }
+  .banner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
   .title-confirm {
-    font-size: 1.2rem;
-    padding: 1rem 0;
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+  }
+  .secure-text {
+    font-size: 1rem;
+  }
+  input {
+    font-size: 14px;
+  }
+  .btn {
+    font-size: 1rem;
+    padding: 10px;
+  }
+  .btn-2 {
+    width: 100%;
+    font-size: 1rem;
+  }
+  footer {
+    height: auto;
+    padding: 20px 0;
+  }
+  footer ul {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
   }
 }
