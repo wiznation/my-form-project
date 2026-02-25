@@ -10,21 +10,19 @@ html, body {
 }
 
 body {
-  font-family: serif;
-  font-size: 14px;
+  font-family: serif;  /* keep original style */
+  font-size: 14px;     /* professional, smaller font */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Header at the top */
 header {
   display: flex;
   align-items: center;
-  padding: 15px 20px;
+  padding: 20px;
   background-color: #f4f4f4;
   border-top: #ffd801 4px solid;
-  flex-shrink: 0;
 }
 
 header nav {
@@ -37,63 +35,65 @@ header nav {
 }
 
 .title {
-  font-size: 20px;
+  font-size: 22px;
   color: #333;
   font-weight: normal;
 }
 
 main {
-  flex: 1;              /* main content fills remaining space */
+  flex: 1;
+  padding: 30px;
+  background-color: #eaeaea;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background-color: #eaeaea;
 }
 
 .card {
   text-align: center;
-  width: 40%;
+  width: 38%;           /* slightly narrower */
   max-width: 400px;
   border-radius: 10px;
   background-color: #fff;
   padding: 1.5rem;
-  box-sizing: border-box;
 }
 
-.card .title-2 {
-  font-size: 1.4rem;
-}
-
-.card .title-confirm {
-  font-size: 1.4rem;
-  font-weight: 700;
-  padding: 1.5rem 0;
-}
-
-.card .secure-text {
-  font-size: 0.95rem;
-  line-height: 1.3;
+.title-2 {
+  font-size: 1.5rem;
+  font-weight: 200;
   text-align: left;
 }
 
-.card input {
+.title-confirm {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.secure-text {
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+input {
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px 12px;
   font-size: 14px;
-  padding: 8px 12px;
   margin-bottom: 15px;
 }
 
-.card .btn, .card .btn-2 {
+.btn, .btn-2 {
   font-size: 1rem;
   padding: 8px 20px;
 }
 
 footer {
-  padding: 20px 0;
+  padding: 25px 0;
   width: 100%;
   background-color: #787777;
   color: #fff;
-  flex-shrink: 0;
 }
 
 footer ul {
@@ -108,7 +108,6 @@ footer ul {
 @media (max-width: 1024px) {
   .card {
     width: 55%;
-    padding: 1.2rem;
   }
   .title-confirm {
     font-size: 1.3rem;
@@ -116,43 +115,29 @@ footer ul {
 }
 
 @media (max-width: 768px) {
-  header nav {
-    margin-left: 0;
-    margin-top: 10px;
-  }
   .card {
     width: 75%;
   }
   .title-2 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
-  .card .secure-text {
-    font-size: 0.9rem;
+  .secure-text {
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 480px) {
-  header {
-    padding: 10px 15px;
-  }
-  .logo {
-    width: 40px;
-    height: 40px;
-  }
-  .title {
-    font-size: 16px;
-  }
   .card {
     width: 90%;
     padding: 1rem;
   }
-  .card .title-2 {
+  .title-2 {
     font-size: 1.1rem;
   }
-  .card .secure-text {
+  .secure-text {
     font-size: 0.85rem;
   }
-  .card .title-confirm {
+  .title-confirm {
     font-size: 1.2rem;
     padding: 1rem 0;
   }
